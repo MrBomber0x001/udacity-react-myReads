@@ -1,11 +1,11 @@
 import React from "react";
 
 const Book = (props) => {
-  let Thumbnail;
+  let BookImage;
   if (props.book.imageLinks) {
-    Thumbnail = props.book.imageLinks.thumbnail;
+    BookImage = props.book.imageLinks.thumbnail;
   } else {
-    Thumbnail = "";
+    BookImage = "";
   }
 
   return (
@@ -16,7 +16,7 @@ const Book = (props) => {
           style={{
             width: 128,
             height: 193,
-            backgroundImage: `url("${Thumbnail}")`,
+            backgroundImage: `url("${BookImage}")`,
           }}
         />
         <div className="book-shelf-changer">

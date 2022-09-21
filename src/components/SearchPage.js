@@ -7,11 +7,10 @@ const SearchPage = ({ allBooks, changeShelf }) => {
   const [query, setQuery] = useState("");
   const [searchBooks, setSearchBooks] = useState([]);
 
-  console.log(allBooks);
   const updateQuery = (query) => {
-    console.log(query.length);
     if (query.length !== 0) {
-      setQuery(query.trim());
+      query = query.trim();
+      setQuery(query);
       API.search(query, 10).then((books_) => {
         setSearchBooks(books_.error ? [] : books_);
       });
@@ -20,7 +19,6 @@ const SearchPage = ({ allBooks, changeShelf }) => {
     }
   };
 
-  console.log(searchBooks);
   let merged = searchBooks.map((sBook) => {
     const intersectBook = allBooks.find((book) => {
       return book.id === sBook.id;
@@ -30,7 +28,6 @@ const SearchPage = ({ allBooks, changeShelf }) => {
     return sBook;
   });
 
-  console.log("Merged", merged);
   return (
     <div className="search-books">
       <div className="search-books-bar">

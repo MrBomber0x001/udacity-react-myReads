@@ -31,14 +31,12 @@ function App() {
   return (
     <Routes>
       <Route
-        exact
-        path={"/"}
+        exact path={"/"}
         element={<MyReads books={allBooks} changeShelf={changeShelf} />}
       />
 
       <Route
-        exact
-        path={"/search"}
+        exact path={"/search"}
         element={<SearchPage allBooks={allBooks} changeShelf={changeShelf} />}
       />
     </Routes>
